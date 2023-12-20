@@ -295,6 +295,11 @@ impl SoundController {
         self.doppler_factor = factor;
     }
 
+	/// Wether or not the sound has stopped.
+	pub fn stopped(&self) -> bool {
+		self.bridge.stopped.load(Ordering::SeqCst)
+	}
+
     fn send_command(&self, cmd: Command) {
         self.bridge.commands.lock().unwrap().push(cmd);
         self.bridge.pending_commands.store(true, Ordering::SeqCst);
