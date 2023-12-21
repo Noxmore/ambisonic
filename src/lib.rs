@@ -19,7 +19,7 @@ use ambisonic::{rodio, AmbisonicBuilder};
 
 let scene = AmbisonicBuilder::default().build();
 
-let source = rodio::source::SineWave::new(440);
+let source = rodio::source::SineWave::new(440.);
 let mut sound = scene.play_at(source, [50.0, 1.0, 0.0]);
 
 // move sound from right to left

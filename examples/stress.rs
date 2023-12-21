@@ -11,7 +11,7 @@ fn main() {
     let scene = AmbisonicBuilder::default().build();
 
     for _ in 0..500 {
-        let source = rodio::source::SineWave::new(440).amplify(0.001);
+        let source = rodio::source::SineWave::new(440.).amplify(0.001);
         let _ = scene.play_omni(source);
     }
 
